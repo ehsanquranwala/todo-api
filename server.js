@@ -89,16 +89,3 @@ app.decorate('notFound', (request, reply) => {
 });
 
 app.setNotFoundHandler(app.notFound);
-
-/*app.post('/register', async (request, reply) => {
-  let val = await firebase
-    .auth()
-    .createUserWithEmailAndPassword(request.body.email, request.body.password)
-    .catch(function(err) {
-      reply.send({ status: 'register_failure', err });
-    });
-    val = function(val) {
-      reply.send({ status: 'register_success', registeredUser: val });
-    }
-    console.log(val)
-});*/
