@@ -7,7 +7,7 @@ const Task = mongoose.model('Tasks');
 exports.list_all_tasks = function(req, res) {
   Task.find({}, function(err, task) {
     if (err) res.send(err);
-    res.json(task);
+    res.send(task);
   });
 };
 
@@ -15,14 +15,14 @@ exports.create_a_task = function(req, res) {
   const new_task = new Task(req.body);
   new_task.save(function(err, task) {
     if (err) res.send(err);
-    res.json(task);
+    res.send(task);
   });
 };
 
 exports.read_a_task = function(req, res) {
   Task.findById(req.params.taskId, function(err, task) {
     if (err) res.send(err);
-    res.json(task);
+    res.send(task);
   });
 };
 
@@ -33,7 +33,7 @@ exports.update_a_task = function(req, res) {
     { new: true },
     function(err, task) {
       if (err) res.send(err);
-      res.json(task);
+      res.send(task);
     }
   );
 };
@@ -45,7 +45,7 @@ exports.delete_a_task = function(req, res) {
     },
     function(err, task) {
       if (err) res.send(err);
-      res.json({ message: 'Task successfully deleted', task:task });
+      res.send({ message: 'Task successfully deleted', task });
     }
   );
 };
